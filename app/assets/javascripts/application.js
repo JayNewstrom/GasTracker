@@ -14,10 +14,9 @@
 //= require jquery_ujs
 //= require exoskeleton
 //= require ./GasTracker
-//= require ./models/Base
-//= require_tree ./models
-//= require ./collections/Base
-//= require_tree ./collections
-//= require_tree ./views
-//= require_tree ../templates
+//= require ./backbone/models/Base
+//= require_tree ./backbone/models
+//= require ./backbone/collections/Base
+//= require_tree ./backbone/collections
+//= require_tree ./backbone/views
 //= require_tree .
