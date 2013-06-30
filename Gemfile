@@ -14,10 +14,14 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
   gem 'bootstrap-sass', '~> 2.3.2.0'
+end
+
+group :development do
+  gem 'therubyracer', :platforms => :ruby
+  gem 'libv8'
 end
 
 gem 'jquery-rails'
