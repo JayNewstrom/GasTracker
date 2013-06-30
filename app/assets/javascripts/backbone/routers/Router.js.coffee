@@ -9,19 +9,20 @@ class GasTracker.routers.Router extends Backbone.Router
     @cleanUpCurrentView()
 
     @currentView = new GasTracker.views.Home()
-    $('body').html(@currentView.render().el)
+    $('.container-narrow').html(@currentView.render().el)
 
   newPrice: =>
     @cleanUpCurrentView()
 
     @currentView = new GasTracker.views.NewPrice()
-    $('body').html(@currentView.render().el)
+    $('.container-narrow').html(@currentView.render().el)
 
   listPrices: =>
     @cleanUpCurrentView()
 
     @currentView = new GasTracker.views.PricesList()
-    $('body').html(@currentView.render().el)
+    $('.container-narrow').html(GasTracker.templates['prices/new_price_button']({}))
+    $('.container-narrow').append(@currentView.render().el)
 
   cleanUpCurrentView: =>
     if @currentView

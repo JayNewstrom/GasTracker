@@ -1,8 +1,13 @@
 
 .list {
-  .row {
+  a {
+    margin-left: 15px;
+  }
+
+  .list-row {
 
     clear: both;
+    margin-left: 5px;
 
     &.header {
       color: red;

@@ -1,5 +1,7 @@
 class GasTracker.views.PriceRow extends exoskeleton.views.base_view
 
+  tagName: 'tr'
+
   template: =>
     cost = @model.get('cost')
     if cost.length == 3

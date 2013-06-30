@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require exoskeleton
 //= require ./GasTracker
 //= require ./backbone/models/Base

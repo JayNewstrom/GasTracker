@@ -1,6 +1,7 @@
 class GasTracker.views.PricesList extends exoskeleton.views.base_view
 
-  className: 'list'
+  className: 'list table'
+  tagName: 'table'
 
   events:
     'click a': 'handleClick'
