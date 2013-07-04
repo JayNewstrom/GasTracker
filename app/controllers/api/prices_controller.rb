@@ -7,7 +7,6 @@ module Api
       prices = Price.select([price_table[:cost], grade_table[:name]]).joins(:grade)
 
       prices = prices.order(price_table[:created_at].desc)
-      puts prices.to_sql
 
       render_api_response prices
     end

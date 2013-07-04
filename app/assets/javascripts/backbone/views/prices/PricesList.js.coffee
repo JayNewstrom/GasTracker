@@ -3,9 +3,6 @@ class GasTracker.views.PricesList extends exoskeleton.views.base_view
   className: 'list table'
   tagName: 'table'
 
-  events:
-    'click a': 'handleClick'
-
   template: ->
     GasTracker.templates['prices/list_header']({})
 
@@ -20,8 +17,3 @@ class GasTracker.views.PricesList extends exoskeleton.views.base_view
         undefined
 
     this
-
-  handleClick: (event) ->
-    event.stopPropagation()
-    event.preventDefault()
-    GasTracker.Router.navigate(event.currentTarget.pathname, {trigger: true})

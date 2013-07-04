@@ -1,10 +1,13 @@
 class GasTracker.views.NewPrice extends exoskeleton.views.base_view
 
+  className: 'newPrice'
+
   initialize: (options) =>
-    navigator.geolocation.getCurrentPosition(@foundLocation, @noLocation)
+    @fetchLocation()
 
   events:
-    'click #save': 'save'
+    'click #save': 'save',
+    'click #refetchLocation': 'fetchLocation'
 
   template: ->
     GasTracker.templates['prices/new']({})
@@ -26,6 +29,7 @@ class GasTracker.views.NewPrice extends exoskeleton.views.base_view
   save: (event) =>
     cost = @$('#cost').val()
     grade_id = @$('#grade').val()
+    addAnotherPrice = this.$('#addAnotherPrice').prop('checked')
 
     priceModel = new GasTracker.models.Price()
 
@@ -41,7 +45,10 @@ class GasTracker.views.NewPrice extends exoskeleton.views.base_view
 
     options =
       success: (model, response, options) ->
-        GasTracker.Router.navigate('prices', {trigger: true})
+        if addAnotherPrice
+          @$('#cost').val('')
+        else
+          GasTracker.Router.navigate('prices', {trigger: true})
 
     priceModel.save(price, options)
 
@@ -57,3 +64,6 @@ class GasTracker.views.NewPrice extends exoskeleton.views.base_view
       alertString += '\nPlease ensure Location Services are "On"\nSettings > Privacy > Location Services > Safari'
 
     alert(alertString)
+
+  fetchLocation: ->
+    navigator.geolocation.getCurrentPosition(@foundLocation, @noLocation)
